@@ -29,16 +29,20 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Clone app repo
-        run: git clone https://github.com/Testelka/test-bookstore.git ../testelka-test-bookstore/test-bookstore
+        run: git clone https://github.com/Testelka/test-bookstore.git test-bookstore
 
       # PUSH/PR → SMOKE (chromium only)
       - name: Run smoke tests (chromium)
         if: github.event_name != 'workflow_dispatch'
+        env:
+          COMPOSE_FILE_PATH: test-bookstore/docker-test-bookstore/docker-compose.yml
         run: npx playwright test --project=chromium
 
       # MANUAL → FULL REGRESSION (all projects)
       - name: Run full regression suite
         if: github.event_name == 'workflow_dispatch'
+        env:
+          COMPOSE_FILE_PATH: test-bookstore/docker-test-bookstore/docker-compose.yml
         run: npx playwright test
 
       - name: Upload Playwright report
@@ -48,8 +52,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-      - name: Stop containers
-        if: ${{ always() }}
-        working-directory: ../testelka-test-bookstore/test-bookstore/docker-test-bookstore
-        run: docker compose down
