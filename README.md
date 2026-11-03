@@ -68,7 +68,7 @@ npx playwright install chromium firefox
 ## 🧪 Running Tests
 
 > [!NOTE]
-> Make sure **Docker Desktop is running**. Playwright's `webServer` will automatically spin up the app containers if they are not already running.
+> Make sure **Docker Desktop is running**. Playwright's `webServer` starts the app using the repository's `docker-compose.yml`. A local must-use WordPress plugin enables WooCommerce customer registration for tests and uses the test-provided password.
 
 ### Run all tests
 ```bash

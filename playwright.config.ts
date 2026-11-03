@@ -5,6 +5,7 @@ import path from "path";
 // Find docker-compose.yml across common layouts or custom env var
 const defaultComposePath = [
   process.env.COMPOSE_FILE_PATH,
+  path.resolve(__dirname, "docker-compose.yml"),
   path.resolve(__dirname, "../testelka-test-bookstore/test-bookstore/docker-test-bookstore/docker-compose.yml"),
   path.resolve(__dirname, "../test-bookstore/docker-test-bookstore/docker-compose.yml"),
 ].find((p) => p && fs.existsSync(p)) || "../testelka-test-bookstore/test-bookstore/docker-test-bookstore/docker-compose.yml";
