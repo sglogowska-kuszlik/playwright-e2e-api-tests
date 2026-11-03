@@ -36,6 +36,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'http://localhost:8080',
+    viewport: { width: 1920, height: 1080 },
 
     /* Capture diagnostics on test failure for reliable debugging. */
     trace: "retain-on-failure",
@@ -46,8 +47,25 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: /.*\.setup\.ts/,
+      teardown: "teardown",
+      use: {
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
+    {
+      name: "teardown",
+      testMatch: /.*\.teardown\.ts/,
+    },
+    {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      dependencies: ["setup"],
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1920, height: 1080 },
+        storageState: ".auth/user.json",
+      },
     },
 
     // {
