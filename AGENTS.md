@@ -146,7 +146,8 @@ All AI assistants operating in this repository must strictly adhere to the follo
 4. **Iteration Limit**: If you are trying to solve or debug an issue and cannot find a clear solution, **stop after the 10th attempt/iteration** and ask the user for guidance or clarification.
 5. **Always Ask Before Running Commands**: Always ask the user for permission before executing shell/terminal commands (e.g., running tests, linters, installs, builds, or scripts).
 6. **Explicit User Approval for Git Actions**: Never perform Git actions automatically—especially staging, committing (`git commit`), pushing (`git push`), merging, rebasing, or resetting. Always ask for explicit user confirmation before executing any Git mutation.
-7. **No Secrets or Hardcoded Local Paths**: Never commit or hardcode credentials, tokens, passwords, API secrets, or machine-specific local filesystem paths into application or test code. Use environment variables or configuration files.
+7. **English Only**: All repository content—including code, comments, test titles, documentation, and commit messages—must be written in English.
+8. **No Secrets or Hardcoded Local Paths**: Never commit or hardcode credentials, tokens, passwords, API secrets, or machine-specific local filesystem paths into application or test code. Use environment variables or configuration files.
 
 ---
 
