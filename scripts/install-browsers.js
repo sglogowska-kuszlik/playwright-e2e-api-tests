@@ -3,9 +3,9 @@
  * Note: This script is meant to be used locally, not on CI.
  *
  * Why this script exists:
- * On Windows (especially with Smart App Control / Defender enabled),
- * default `npx playwright install` can hang indefinitely at 100% while extracting
- * zip archives due to Node.js stream locks when writing DLL/binary files.
+ * Across certain combinations of Node.js (e.g., Node 24.16+, 26.13) and older Playwright versions,
+ * standard `npx playwright install` can hang indefinitely at 100% while unpacking zip archives
+ * due to an `extract-zip` / stream completion bug (see microsoft/playwright#40724).
  *
  * What this script does:
  * 1. Checks playwright.config.ts to detect which browsers are actually enabled in `projects`.

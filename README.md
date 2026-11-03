@@ -48,16 +48,20 @@ npm install
 ```
 
 ### 3. Install Playwright browsers
-Standard installation:
+Standard installation (Chromium and Firefox):
 ```bash
-npx playwright install
+npx playwright install chromium firefox
 ```
 
 > [!TIP]
-> **Windows Troubleshooting**: If the standard `npx playwright install` hangs while extracting archives (due to Windows Smart App Control or Defender inspecting background node streams), run the included installer script instead:
-> ```bash
-> npm run install:browsers
-> ```
+> **Troubleshooting Browser Installation**:
+> In certain combinations of Node.js and Playwright versions, standard `npx playwright install` may hang at 100% while unpacking zip archives due to a known `extract-zip` stream bug ([microsoft/playwright#40724](https://github.com/microsoft/playwright/issues/40724)).
+>
+> - **Known working configuration**: Node.js `v26.13.0` (or `v22.x`) with `@playwright/test` `>= 1.64.1`.
+> - If you ever encounter archive unpacking issues locally, an alternative fallback installer is included that uses native extraction tools:
+>   ```bash
+>   npm run install:browsers
+>   ```
 
 ---
 
