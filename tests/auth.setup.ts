@@ -9,7 +9,10 @@ setup('authenticate user and store session state', async ({ page }) => {
   await mkdir('.auth', { recursive: true });
   await rm(customerFile, { force: true });
 
-  await writeFile(customerFile, JSON.stringify({ email: TEST_USER.email }));
+  await writeFile(
+    customerFile,
+    JSON.stringify({ email: TEST_USER.email, password: TEST_USER.password })
+  );
   await page.goto('/my-account');
 
   const registrationEmail = page.locator('#reg_email');
