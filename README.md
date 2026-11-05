@@ -2,6 +2,8 @@
 
 Automated End-to-End (E2E) and REST API test suite built with **[Playwright](https://playwright.dev/)** and **TypeScript** for the **[Test Bookstore](https://github.com/Testelka/test-bookstore)** application (WordPress & WooCommerce).
 
+This is a practice repository for exploring Playwright, Playwright MCP, and coding-agent capabilities. It is developed with GitHub Copilot, Antigravity, and Playwright MCP, alongside years of test automation experience. 😉
+
 ---
 
 ## 🚀 Features & Architecture
