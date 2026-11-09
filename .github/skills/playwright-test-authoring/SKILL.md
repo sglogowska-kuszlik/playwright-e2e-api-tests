@@ -6,22 +6,23 @@ argument-hint: 'Describe the test flow or test file to add or refactor'
 
 # Playwright Test Authoring
 
-Use this workflow when creating or changing tests in this repository.
+Use this workflow when creating or changing tests in this repository. Follow the repository-wide standards in `AGENTS.md`; this skill adds UI-test-specific guidance.
 
 ## Before editing
 
-1. Read the relevant tests, Page Objects, fixtures, `playwright.config.ts`, and `AGENTS.md`.
+1. Read `AGENTS.md` and only the tests, Page Objects, fixtures, and configuration directly related to the task. Expand the scope only when those files reveal a specific dependency; do not review the whole repository by default.
 2. Inspect the application UI or existing test results when selectors or expected behavior are uncertain. Prefer available browser/MCP tools over guessing.
 3. Identify the intended user state (authenticated customer, administrator, or guest) and the exact behavior the test should prove.
 
 ## Structure related tests
 
-1. Group tests that cover the same page or user flow in one descriptive `test.describe` block.
-2. Keep the suite title focused on the shared feature or page; keep each test title focused on its distinct expected behavior.
-3. Move genuinely repeated setup into the narrowest suitable Playwright hook:
+1. Put executable browser end-to-end specs under `tests/e2e/` and use kebab-case filenames ending in `.spec.ts`.
+2. Group tests that cover the same page or user flow in one descriptive `test.describe` block.
+3. Keep the suite title focused on the shared feature or page; keep each test title focused on its distinct expected behavior.
+4. Move genuinely repeated setup into the narrowest suitable Playwright hook:
    - `beforeEach` for per-test page-object construction and navigation.
    - `beforeAll` only for immutable suite data that is safe to share. Do not share a `Page`, browser context, or mutable test state across tests.
-4. Prefer existing custom fixtures for shared dependencies. Avoid adding hooks or abstractions that obscure a simple test.
+5. Prefer existing custom fixtures for shared dependencies. Avoid adding hooks or abstractions that obscure a simple test.
 
 ## Page Objects and locators
 

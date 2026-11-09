@@ -6,7 +6,7 @@ argument-hint: 'Describe the failure, unexpected behavior, or relevant test'
 
 # Debug and Fix
 
-Use this workflow to investigate and fix failures without relying on speculative edits.
+Use this workflow to investigate and fix failures without relying on speculative edits. Follow the repository-wide standards in `AGENTS.md`; this skill adds debugging-specific guidance.
 
 ## Understand the failure
 

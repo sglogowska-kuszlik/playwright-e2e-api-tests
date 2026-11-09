@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
-import type { TestUserCredentials } from '../models/user.types.js';
-import { MyAccountPage } from '../pages/my-account.page.js';
+import type { TestUserCredentials } from '../../models/user.types.js';
+import { MyAccountPage } from '../../pages/my-account.page.js';
 
 test.describe('My Account login', () => {
   test.use({ storageState: { cookies: [], origins: [] } });
